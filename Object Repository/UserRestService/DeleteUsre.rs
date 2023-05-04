@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>ListUser</name>
+   <name>DeleteUsre</name>
    <tag></tag>
-   <elementGuidId>0ee55e50-3e0e-4905-bd3f-0dec29f5d994</elementGuidId>
+   <elementGuidId>0b845de5-f61a-49d1-9f92-8927114613ff</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>true</autoUpdateContent>
@@ -15,8 +15,8 @@
    <katalonVersion>8.6.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://reqres.in/api/users?page=2</restUrl>
+   <restRequestMethod>DELETE</restRequestMethod>
+   <restUrl>https://reqres.in/api/users/2</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -40,18 +40,8 @@ RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
 
 
+WS.verifyResponseStatusCode(response, 204)
 
-WS.verifyResponseStatusCode(response, 200)
-
-assertThat(response.getStatusCode()).isEqualTo(200)
-
-WS.verifyElementPropertyValue(response, 'data[1].first_name', 'Lindsay')
-
-
-
-
-WS.verifyResponseStatusCode(response, 200)
-
-assertThat(response.getStatusCode()).isEqualTo(200)</verificationScript>
+assertThat(response.getStatusCode()).isEqualTo(204)</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
