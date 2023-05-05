@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Addition</name>
+   <name>GetCapital</name>
    <tag></tag>
-   <elementGuidId>47b41616-97be-45f9-a735-e5ae544587e2</elementGuidId>
+   <elementGuidId>77dead2a-69e1-4fa6-a38a-aa37a9238eae</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>true</autoUpdateContent>
@@ -15,39 +15,36 @@
    <httpHeaderProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>SOAPAction</name>
-      <type>Main</type>
-      <value>http://tempuri.org/Add</value>
-      <webElementGuid>cdae1976-4b31-485c-a6c1-a8b7fd5a77b7</webElementGuid>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
       <value>text/xml; charset=utf-8</value>
-      <webElementGuid>a96fd938-3cec-4513-8bbc-9a90a90f54ce</webElementGuid>
+      <webElementGuid>91577c62-6393-4603-9778-ca60e1ce3282</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.6.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <restRequestMethod></restRequestMethod>
    <restUrl></restUrl>
    <serviceType>SOAP</serviceType>
-   <soapBody>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot;>
-   &lt;soapenv:Header/>
-   &lt;soapenv:Body>
-      &lt;tem:Add>
-         &lt;tem:intA>4&lt;/tem:intA>
-         &lt;tem:intB>2&lt;/tem:intB>
-      &lt;/tem:Add>
-   &lt;/soapenv:Body>
-&lt;/soapenv:Envelope></soapBody>
+   <soapBody>&lt;Envelope xmlns=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;>
+    &lt;Body>
+        &lt;CapitalCity xmlns=&quot;http://www.oorsprong.org/websamples.countryinfo&quot;>
+            &lt;sCountryISOCode>${countryISOCode}&lt;/sCountryISOCode>
+        &lt;/CapitalCity>
+    &lt;/Body>
+&lt;/Envelope></soapBody>
    <soapHeader></soapHeader>
    <soapRequestMethod>SOAP</soapRequestMethod>
-   <soapServiceEndpoint>http://www.dneonline.com/calculator.asmx</soapServiceEndpoint>
-   <soapServiceFunction>Add</soapServiceFunction>
+   <soapServiceEndpoint>http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso</soapServiceEndpoint>
+   <soapServiceFunction>CapitalCity</soapServiceFunction>
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>false</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>GlobalVariable.countryISOCode</defaultValue>
+      <description></description>
+      <id>588e46c8-17dd-4ff5-bd94-706fe7881bf3</id>
+      <masked>false</masked>
+      <name>countryISOCode</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject
@@ -61,17 +58,6 @@ import internal.GlobalVariable as GlobalVariable
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-
-
-
-
-WS.verifyResponseStatusCode(response, 200)
-
-assertThat(response.getStatusCode()).isEqualTo(200)
-
-assertThat(response.getResponseText()).contains('AddResult')
-
-
-WS.verifyElementText(response, 'AddResponse.AddResult', '6')</verificationScript>
-   <wsdlAddress>http://www.dneonline.com/calculator.asmx?WSDL</wsdlAddress>
+WS.verifyElementText(response, 'CapitalCityResponse.CapitalCityResult', 'Luanda')</verificationScript>
+   <wsdlAddress>http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</wsdlAddress>
 </WebServiceRequestEntity>

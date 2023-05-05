@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Addition</name>
+   <name>ListCountries</name>
    <tag></tag>
-   <elementGuidId>47b41616-97be-45f9-a735-e5ae544587e2</elementGuidId>
+   <elementGuidId>fc465fae-0618-46b6-b7ac-a6aaa3e21a8f</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>true</autoUpdateContent>
@@ -15,37 +15,26 @@
    <httpHeaderProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>SOAPAction</name>
-      <type>Main</type>
-      <value>http://tempuri.org/Add</value>
-      <webElementGuid>cdae1976-4b31-485c-a6c1-a8b7fd5a77b7</webElementGuid>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
       <value>text/xml; charset=utf-8</value>
-      <webElementGuid>a96fd938-3cec-4513-8bbc-9a90a90f54ce</webElementGuid>
+      <webElementGuid>135e2726-aef4-4b41-b188-79307a16bc6c</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.6.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <restRequestMethod></restRequestMethod>
    <restUrl></restUrl>
    <serviceType>SOAP</serviceType>
-   <soapBody>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:tem=&quot;http://tempuri.org/&quot;>
+   <soapBody>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:web=&quot;http://www.oorsprong.org/websamples.countryinfo&quot;>
    &lt;soapenv:Header/>
    &lt;soapenv:Body>
-      &lt;tem:Add>
-         &lt;tem:intA>4&lt;/tem:intA>
-         &lt;tem:intB>2&lt;/tem:intB>
-      &lt;/tem:Add>
+      &lt;web:ListOfCountryNamesByName/>
    &lt;/soapenv:Body>
 &lt;/soapenv:Envelope></soapBody>
    <soapHeader></soapHeader>
    <soapRequestMethod>SOAP</soapRequestMethod>
-   <soapServiceEndpoint>http://www.dneonline.com/calculator.asmx</soapServiceEndpoint>
-   <soapServiceFunction>Add</soapServiceFunction>
+   <soapServiceEndpoint>http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso</soapServiceEndpoint>
+   <soapServiceFunction>ListOfCountryNamesByName</soapServiceFunction>
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>false</useServiceInfoFromWsdl>
    <verificationScript>import static org.assertj.core.api.Assertions.*
@@ -62,16 +51,7 @@ RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
 
-
-
-
-WS.verifyResponseStatusCode(response, 200)
-
-assertThat(response.getStatusCode()).isEqualTo(200)
-
-assertThat(response.getResponseText()).contains('AddResult')
-
-
-WS.verifyElementText(response, 'AddResponse.AddResult', '6')</verificationScript>
-   <wsdlAddress>http://www.dneonline.com/calculator.asmx?WSDL</wsdlAddress>
+WS.verifyElementText(response, 'ListOfCountryNamesByNameResponse.ListOfCountryNamesByNameResult.tCountryCodeAndName[0].sISOCode', 'AX')
+WS.verifyElementText(response, 'ListOfCountryNamesByNameResponse.ListOfCountryNamesByNameResult.tCountryCodeAndName[6].sISOCode', 'AD')</verificationScript>
+   <wsdlAddress>http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</wsdlAddress>
 </WebServiceRequestEntity>
