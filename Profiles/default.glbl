@@ -14,4 +14,14 @@
       <initValue>'Tobias'</initValue>
       <name>username</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>emailRandom</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'1440200'</initValue>
+      <name>userID</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
