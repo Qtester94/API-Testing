@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Users</name>
+   <name>UserToDO</name>
    <tag></tag>
-   <elementGuidId>d9bf7f6f-bf7e-4688-8872-835c957f4e06</elementGuidId>
+   <elementGuidId>58ead31f-b7ab-43f9-9981-164d11f8e09b</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>true</autoUpdateContent>
@@ -16,7 +16,7 @@
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://gorest.co.in/public/v2/users</restUrl>
+   <restUrl>https://gorest.co.in/public/v2/users/${userID}/todos</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -25,6 +25,13 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>GlobalVariable.userID</defaultValue>
+      <description></description>
+      <id>8a97120e-f76a-478b-a078-3ea4dfd27170</id>
+      <masked>false</masked>
+      <name>userID</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject
@@ -43,6 +50,6 @@ ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
 WS.verifyResponseStatusCode(response, 200)
 
 assertThat(response.getStatusCode()).isEqualTo(200)
-</verificationScript>
+WS.verifyElementPropertyValue(response, '[0].user_id', GlobalVariable.userID)</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

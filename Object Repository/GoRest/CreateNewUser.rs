@@ -10,7 +10,7 @@
       <authorizationInfo>
          <entry>
             <key>bearerToken</key>
-            <value>f0f6078c7e620d67ed96419b9aa322418e519a0d15b8e21f2c30f910ac393787</value>
+            <value>${token}</value>
          </entry>
       </authorizationInfo>
       <authorizationType>Bearer</authorizationType>
@@ -38,8 +38,8 @@
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer f0f6078c7e620d67ed96419b9aa322418e519a0d15b8e21f2c30f910ac393787</value>
-      <webElementGuid>22dd290a-2b51-4ddc-adb4-35ae8e46fdc1</webElementGuid>
+      <value>Bearer ${token}</value>
+      <webElementGuid>c5675e33-9d51-4b61-b9cf-50e6f770b4ef</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.6.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
@@ -60,6 +60,13 @@
       <id>229ce72b-5079-44e0-b675-86d1ac342a78</id>
       <masked>false</masked>
       <name>email</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.GoRestToken</defaultValue>
+      <description></description>
+      <id>b31ee1cd-374c-4628-b380-4a38aa385512</id>
+      <masked>false</masked>
+      <name>token</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

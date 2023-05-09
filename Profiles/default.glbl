@@ -21,7 +21,17 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'1440200'</initValue>
+      <initValue>''</initValue>
       <name>userID</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'f0f6078c7e620d67ed96419b9aa322418e519a0d15b8e21f2c30f910ac393787'</initValue>
+      <name>GoRestToken</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>postID</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

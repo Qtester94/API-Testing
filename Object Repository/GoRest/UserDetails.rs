@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>UserDeatil</name>
+   <name>UserDetails</name>
    <tag></tag>
    <elementGuidId>41013eee-d3e9-4f09-b3fe-5ccd4ef0b36e</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
@@ -16,7 +16,7 @@
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://gorest.co.in/public/v2/users/880</restUrl>
+   <restUrl>https://gorest.co.in/public/v2/users/${userID}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -25,6 +25,13 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>GlobalVariable.userID</defaultValue>
+      <description></description>
+      <id>b694ad9f-6ab6-4795-8b2d-04ddbf083fdf</id>
+      <masked>false</masked>
+      <name>userID</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject
@@ -43,6 +50,6 @@ ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
 WS.verifyResponseStatusCode(response, 200)
 
 assertThat(response.getStatusCode()).isEqualTo(200)
-WS.verifyElementPropertyValue(response, 'id', 880)</verificationScript>
+WS.verifyElementPropertyValue(response, 'id', GlobalVariable.userID)</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

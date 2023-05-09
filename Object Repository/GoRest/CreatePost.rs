@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>ComentsPost</name>
+   <name>CreatePost</name>
    <tag></tag>
-   <elementGuidId>3d187d08-1ff2-4fe7-9c5b-6d4512c3f29b</elementGuidId>
+   <elementGuidId>06ffa2cb-de76-4c91-8070-01517f87cec3</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <authorizationRequest>
       <authorizationInfo>
          <entry>
             <key>bearerToken</key>
-            <value>f0f6078c7e620d67ed96419b9aa322418e519a0d15b8e21f2c30f910ac393787</value>
+            <value>${token}</value>
          </entry>
       </authorizationInfo>
       <authorizationType>Bearer</authorizationType>
@@ -20,7 +20,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n\&quot;name\&quot; : \&quot;Test Name\&quot;,\n  \&quot;email\&quot; : \&quot;test@test.com\&quot;,\n  \&quot;body\&quot; : \&quot;Test Body\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n\&quot;title\&quot; : \&quot;Test Title\&quot;,\n\&quot;body\&quot; : \&quot; Test body\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -31,21 +31,21 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
-      <webElementGuid>95aad78f-a522-438b-841f-24f295034227</webElementGuid>
+      <webElementGuid>f663d041-8a58-4fe9-bab6-45404c00cf0d</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>Authorization</name>
       <type>Main</type>
-      <value>Bearer f0f6078c7e620d67ed96419b9aa322418e519a0d15b8e21f2c30f910ac393787</value>
-      <webElementGuid>3c1312bb-fb0e-4d3f-8c09-e8a961aecf67</webElementGuid>
+      <value>Bearer ${token}</value>
+      <webElementGuid>2cfbca84-f386-4e9a-b813-3d1c3416fe16</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.6.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>https://gorest.co.in/public/v2/posts/880/comments</restUrl>
+   <restUrl>https://gorest.co.in/public/v2/users/${userID}/posts</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -54,6 +54,20 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>GlobalVariable.userID</defaultValue>
+      <description></description>
+      <id>5e2a6edd-bd68-4d97-8e1f-a92188e8af3c</id>
+      <masked>false</masked>
+      <name>userID</name>
+   </variables>
+   <variables>
+      <defaultValue>GlobalVariable.GoRestToken</defaultValue>
+      <description></description>
+      <id>12d301e8-4a82-4cf2-9667-d8fd507e86b9</id>
+      <masked>false</masked>
+      <name>token</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject
@@ -72,8 +86,8 @@ ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
 WS.verifyResponseStatusCode(response, 201)
 
 assertThat(response.getStatusCode()).isEqualTo(201)
-WS.verifyElementPropertyValue(response, 'name', &quot;Test Name&quot;)
-WS.verifyElementPropertyValue(response, 'email', &quot;test@test.com&quot;)
-WS.verifyElementPropertyValue(response, 'body', &quot;Test Body&quot;)</verificationScript>
+
+WS.verifyElementPropertyValue(response, 'title', &quot;Test Title&quot;)
+WS.verifyElementPropertyValue(response, 'body', &quot; Test body&quot;)</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
